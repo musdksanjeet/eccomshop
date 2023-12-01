@@ -5,7 +5,9 @@ use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\Customer\CustomerDashboardComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Sprovider\SproviderDashboardComponent;
-
+use App\Http\Livewire\ServiceCategoriesComponent;
+use App\Http\Livewire\Admin\AdminServiceCategoryComponent;
+use App\Http\Livewire\Admin\AdminAddServiceCategoryComponent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +24,7 @@ use App\Http\Livewire\Sprovider\SproviderDashboardComponent;
 // });
 
 Route::get('/',HomeComponent::class)->name('home');
+Route::get('/service-categories',ServiceCategoriesComponent::class)->name('home.services_categories');
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),
@@ -35,7 +38,10 @@ Route::get('/',HomeComponent::class)->name('home');
 
 // for Admin
 Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
-    Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');    
+ Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard'); 
+ Route::get('/admin/service-categories',AdminServiceCategoryComponent::class)->name('admin.service-categories');
+ Route::get('/admin/service-categories/add',AdminAddServiceCategoryComponent::class)->name('admin.add_service_category');
+
 });
 
 // for Sprovider

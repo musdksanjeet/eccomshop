@@ -56,6 +56,7 @@
                     <li class="title">
                         <a href="/"><img src="{{asset('images/logo.png')}}"></a>
                     </li>
+                    <li> <a href="{{route('home.services_categories')}}">Service Categories</a></li> 
                     <li> <a href="javascript:void(0);">Air Conditioners</a>
                         <ul class="drop-down one-column hover-fade">
                             <li><a href="service-details/ac-wet-servicing.html">Wet Servicing</a></li>
@@ -124,7 +125,8 @@
                             @if(Auth::user()->utype==='ADM')
                                 <li class="login-form"> <a href="#" title="Register">My Account (Admin)</a>
                                     <ul class="drop-down one-column hover-fade">
-                                        <li><a href="{{route('admin.dashboard')}}">Dasboard</a></li>                                                       
+                                        <li><a href="{{route('admin.dashboard')}}">Dasboard</a></li>
+                                        <li><a href="{{route('admin.service-categories')}}">Service Categories</a></li>                                                       
                                         <li><a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                     </ul>
                                 </li>
