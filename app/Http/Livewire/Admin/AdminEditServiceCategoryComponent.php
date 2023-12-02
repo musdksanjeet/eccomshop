@@ -6,6 +6,7 @@ use Livewire\Component;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 use App\Models\ServiceCategory;
+use Livewire\WithFileUploads;
 
 
 class AdminEditServiceCategoryComponent extends Component
@@ -15,7 +16,7 @@ class AdminEditServiceCategoryComponent extends Component
     public $image;
     public $category_id;
     public $newimage;
-
+    
     public function mount($category_id)
     {
         $scategory=ServiceCategory::find($category_id);
@@ -29,7 +30,7 @@ class AdminEditServiceCategoryComponent extends Component
     {
         $this->slug=Str::slug($this->name,'-');
     }
-
+    use WithFileUploads;
     public function updated($fields)
     {
         $this->validateOnly($fields,[

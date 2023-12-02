@@ -18,6 +18,7 @@
     <script type="text/javascript" src="{{asset('assets/js/jquery-ui.1.10.4.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/toastr.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/modernizr.js')}}"></script>
+    @livewireStyles
 </head>
 <body>
     <div id="layout">
@@ -126,7 +127,7 @@
                                 <li class="login-form"> <a href="#" title="Register">My Account (Admin)</a>
                                     <ul class="drop-down one-column hover-fade">
                                         <li><a href="{{route('admin.dashboard')}}">Dasboard</a></li>
-                                        <li><a href="{{route('admin.service-categories')}}">Service Categories</a></li>                                                       
+                                        <li><a href="{{route('admin.service_categories')}}">Service Categories</a></li>                                                       
                                         <li><a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                     </ul>
                                 </li>
@@ -303,5 +304,6 @@
             });
         });
     </script>
+    @livewireScripts
 </body>
 </html>

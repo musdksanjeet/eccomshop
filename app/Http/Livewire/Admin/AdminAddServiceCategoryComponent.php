@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\ServiceCategory;
-use Livewire\WithPagination;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 
@@ -14,6 +14,7 @@ class AdminAddServiceCategoryComponent extends Component
     public $slug;
     public $image;
 
+    use WithFileUploads;
     public function generateSlug(){
         $this->slug=Str::slug($this->name,'-');
     }
@@ -35,7 +36,6 @@ class AdminAddServiceCategoryComponent extends Component
     ]);
    
     $scategory = new ServiceCategory();
-
     $scategory->name = $this->name;
     $scategory->slug = $this->slug;
 
@@ -44,7 +44,7 @@ class AdminAddServiceCategoryComponent extends Component
 
     $scategory->image = $imageName;
 
-    echo "<pre>";print_r($scategory);die();
+    
     $scategory->save();
 
     session()->flash('message', 'Category has been created successfully!');
