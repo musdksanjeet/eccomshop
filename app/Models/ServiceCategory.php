@@ -9,5 +9,5 @@ class ServiceCategory extends Model
 {
     use HasFactory;
     
-    protected $table="service_categories";
+    // protected $table="service_categories";
 }

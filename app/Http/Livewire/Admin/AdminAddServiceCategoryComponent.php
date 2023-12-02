@@ -14,7 +14,7 @@ class AdminAddServiceCategoryComponent extends Component
     public $slug;
     public $image;
 
-    public function generateslug(){
+    public function generateSlug(){
         $this->slug=Str::slug($this->name,'-');
     }
     public function updated($fields)
@@ -26,26 +26,30 @@ class AdminAddServiceCategoryComponent extends Component
         ]);
     }
   
-    public function createNewCategory()
+   public function createNewCategory()
     {
     $this->validate([
-        'name'  =>'required',
-        'slug'  =>'required',
-        'image' =>'required|mimes:jpg,jpeg,png',
+        'name'  => 'required',
+        'slug' => 'required',
+        'image' => 'required|mimes:jpg,jpeg,png',
     ]);
-
+   
     $scategory = new ServiceCategory();
 
     $scategory->name = $this->name;
     $scategory->slug = $this->slug;
 
-    $imageName = Carbon::now()->timestamp.'.'.$this->image->extension();
+    $imageName = Carbon::now()->timestamp . '.' . $this->image->extension();
     $this->image->storeAs('categories', $imageName);
 
     $scategory->image = $imageName;
+
+    echo "<pre>";print_r($scategory);die();
     $scategory->save();
-    session()->flash('message','Category has been created successfully!');
-    }
+
+    session()->flash('message', 'Category has been created successfully!');
+}
+
 
     public function render()
     {
