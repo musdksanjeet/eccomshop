@@ -62,7 +62,7 @@
                                                     <td>{{$service->id}}</td>
                                                     <td><img src="{{asset('images/services/thumbnails')}}/{{$service->thumbnail}}" height="60" /> </td>
                                                     <td>{{$service->name}}</td>
-                                                    <td>{{$service->price}}</td>
+                                                    <td>${{$service->price}}</td>
                                                     <td>
                                                         @if($service->status)
                                                             Active
@@ -70,7 +70,7 @@
                                                             Inactive
                                                         @endif
                                                     </td>
-                                                    <td>{{$service->category->name}}</td>
+                                                    <td>{{$service->serviceCategory->name}}</td>
                                                     <td>{{$service->created_at}}</td>
                                                     <td>
                                                         <a href="#"><i class="fa fa-edit fa-2x text-info"></i></a>

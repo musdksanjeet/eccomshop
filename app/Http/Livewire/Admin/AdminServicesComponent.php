@@ -5,7 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use App\Models\Service;
 use Livewire\WithPagination;
-use App\Models\ServiceCategory;
+
 
 class AdminServicesComponent extends Component
 {
@@ -13,6 +13,7 @@ class AdminServicesComponent extends Component
     public function render()
     {
         $services=Service::paginate(10);
+        // echo "<pre>";print_r($services);die();
         return view('livewire.admin.admin-services-component',['services'=>$services])->layout('layouts.base');
     }
 }
