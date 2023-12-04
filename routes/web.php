@@ -16,6 +16,12 @@ use App\Http\Livewire\Admin\AdminAddServiceComponent;
 use App\Http\Livewire\Admin\AdminEditServiceComponent;
 use App\Http\Livewire\ServiceDetailsComponent;
 
+use App\Http\Livewire\Admin\AdminSliderComponent;
+use App\Http\Livewire\Admin\AdminAddSlideComponent;
+use App\Http\Livewire\Admin\AdminEditSlideComponent;
+
+
+
 /*
 
 |--------------------------------------------------------------------------
@@ -60,6 +66,9 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
 Route::get('/admin/services/add',AdminAddServiceComponent::class)->name('admin.add_service'); 
 Route::get('/admin/service/edit/{service_slug}',AdminEditServiceComponent::class)->name('admin.edit_service');
 
+Route::get('/admin/slider',AdminSliderComponent::class)->name('admin.slider');
+Route::get('/admin/slide/add',AdminAddSlideComponent::class)->name('admin.add_slide');
+Route::get('/admin/slide/edit/{slide_id}',AdminEditSlideComponent::class)->name('admin.edit_slide');
 
 });
 
