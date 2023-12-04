@@ -93,7 +93,7 @@
                         <div class="row">
                             <div class="col-md-4 ">
                                 <div class="services-lines-info">
-                                    <h2>WELCOME TO DIVERSIFIED</h2>
+                                    <h2>WELCOME TO Recenturesoft</h2>
                                     <p class="lead">
                                         Book best services at one place.
                                         <span class="line"></span>
@@ -104,78 +104,18 @@
                             </div>
                             <div class="col-md-8">
                                 <ul class="services-lines">
+                                    @foreach($fscecategories as $fscategory)
                                     <li>
-                                        <a href="servicesbycategory/1.html">
+                                        <a href="{{route('home.services_by_category',['category_slug'=>$fscategory->slug])}}">
                                             <div class="item-service-line">
                                                 <i class="fa"><img class="icon-img"
-                                                        src="images/sercat/service-icon.png')}}"></i>
-                                                <h5>AC</h5>
+                                                        src="{{ asset('images/categories') }}/{{$fscategory->image}}"></i>
+                                                <h5>{{$fscategory->name}}</h5>
                                             </div>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="servicesbycategory/3.html">
-                                            <div class="item-service-line">
-                                                <i class="fa"><img class="icon-img"
-                                                        src="images/sercat/service-icon.png')}}"></i>
-                                                <h5>Plumbing</h5>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="servicesbycategory/4.html">
-                                            <div class="item-service-line">
-                                                <i class="fa"><img class="icon-img"
-                                                        src="images/sercat/service-icon.png')}}"></i>
-                                                <h5>Electrical</h5>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="servicesbycategory/6.html">
-                                            <div class="item-service-line">
-                                                <i class="fa"><img class="icon-img"
-                                                        src="images/sercat/service-icon.png')}}"></i>
-                                                <h5>Home Cleaning</h5>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="servicesbycategory/8.html">
-                                            <div class="item-service-line">
-                                                <i class="fa"><img class="icon-img"
-                                                        src="images/sercat/service-icon.png')}}"></i>
-                                                <h5>Pest Control</h5>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="servicesbycategory/11.html">
-                                            <div class="item-service-line">
-                                                <i class="fa"><img class="icon-img"
-                                                        src="images/sercat/service-icon.png')}}"></i>
-                                                <h5>Computer Repair</h5>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="servicesbycategory/12.html">
-                                            <div class="item-service-line">
-                                                <i class="fa"><img class="icon-img"
-                                                        src="images/sercat/service-icon.png')}}"></i>
-                                                <h5>TV</h5>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="servicesbycategory/13.html">
-                                            <div class="item-service-line">
-                                                <i class="fa"><img class="icon-img"
-                                                        src="images/sercat/service-icon.png')}}"></i>
-                                                <h5>Refrigerator</h5>
-                                            </div>
-                                        </a>
-                                    </li>
+                                    @endforeach
+                                    
                                 </ul>
                             </div>
                         </div>

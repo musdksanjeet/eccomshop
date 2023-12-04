@@ -16,6 +16,7 @@ class AdminEditServiceCategoryComponent extends Component
     public $image;
     public $category_id;
     public $newimage;
+    public $featured;
     
     public function mount($category_id)
     {
@@ -23,6 +24,7 @@ class AdminEditServiceCategoryComponent extends Component
         $this->category_id=$scategory->id;
         $this->name=$scategory->name;
         $this->slug=$scategory->slug;
+        $this->featured=$scategory->featured;
         $this->image=$scategory->image;
     }
 
@@ -60,6 +62,7 @@ class AdminEditServiceCategoryComponent extends Component
         $scategory=ServiceCategory::find($this->category_id);
         $scategory->name=$this->name;
         $scategory->slug=$this->slug;
+        $scategory->featured=$this->featured;
         if($this->newimage)
         {
             $newImage=Carbon::now()->timestamp.'.'.$this->newimage->extension();

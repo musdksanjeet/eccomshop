@@ -63,6 +63,16 @@
                                                 @endif
                                                 @error('newimage') <p class="text-danger">{{$message}}</p> @enderror
                                             </div>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="featured" class="control-label col-sm-3">Featured: </label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control" name="featured" wire:model="featured">
+                                                    <option value="0">No</option>
+                                                    <option value="1">Yes</option>
+                                                </select>                                                
+                                            </div>
                                         </div>
                                         <button type="submit" class="btn btn-success pull-right">Edit Category</button>
                                     </form>
