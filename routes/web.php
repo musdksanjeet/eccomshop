@@ -11,6 +11,7 @@ use App\Http\Livewire\Admin\AdminAddServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminEditServiceCategoryComponent;
 use App\Http\Livewire\ServicesByCategoryComponent;
 use App\Http\Livewire\Admin\AdminServicesComponent;
+use App\Http\Livewire\Admin\AdminServicesByCategroyComponent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,7 +48,9 @@ Route::middleware(['auth:sanctum', 'verified','authadmin'])->group(function(){
  Route::get('/admin/service-categories',AdminServiceCategoryComponent::class)->name('admin.service_categories');
  Route::get('/admin/service-categories/add',AdminAddServiceCategoryComponent::class)->name('admin.add_service_category');
  Route::get('/admin/service-category/edit/{category_id}',AdminEditServiceCategoryComponent::class)->name('admin.edit_service_category');
- Route::get('/admin/all-services',AdminServicesComponent::class)->name('admin.all_services'); 
+ Route::get('/admin/all-services',AdminServicesComponent::class)->name('admin.all_services');
+ Route::get('/admin/{category_slug}/services',AdminServicesByCategroyComponent::class)->name('admin.services_by_category'); 
+
 
 });
 
