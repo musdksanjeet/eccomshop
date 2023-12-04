@@ -18,7 +18,6 @@ class ServicesByCategoryComponent extends Component
     public function render()
     {
         $scategory=ServiceCategory::where('slug',$this->category_slug)->first();
-        // echo "<pre>";print_r($scategory);die();
         return view('livewire.services-by-category-component',['scategory'=>$scategory])->layout('layouts.base');
     }
 }
