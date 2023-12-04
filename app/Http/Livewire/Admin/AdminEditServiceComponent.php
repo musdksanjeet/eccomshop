@@ -27,6 +27,7 @@ class AdminEditServiceComponent extends Component
     public $newthumbnail;
     public $newimage;
     public $service_id;
+    public $featured;
 
     public function mount($service_slug)
     {
@@ -42,6 +43,7 @@ class AdminEditServiceComponent extends Component
         $this->image = $service->image;
         $this->thumbnail = $service->thumbnail;
         $this->description = $service->description;
+        $this->featured = $service->featured;
         $this->inclusion = str_replace("|"," ",$service->inclusion);
         $this->exclusion = str_replace("|"," ",$service->exclusion);
 
@@ -121,6 +123,7 @@ class AdminEditServiceComponent extends Component
         $service->discount = $this->discount;
         $service->discount_type = $this->discount_type;       
         $service->description = $this->description;
+        $service->featured = $this->featured;      
         $service->inclusion = str_replace(' ', '|', trim($this->inclusion));
         $service->exclusion = str_replace(' ', '|', trim($this->exclusion));
 
