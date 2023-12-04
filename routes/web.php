@@ -9,6 +9,7 @@ use App\Http\Livewire\ServiceCategoriesComponent;
 use App\Http\Livewire\Admin\AdminServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminAddServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminEditServiceCategoryComponent;
+use App\Http\Livewire\ServicesByCategoryComponent;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,6 +27,8 @@ use App\Http\Livewire\Admin\AdminEditServiceCategoryComponent;
 
 Route::get('/',HomeComponent::class)->name('home');
 Route::get('/service-categories',ServiceCategoriesComponent::class)->name('home.services_categories');
+Route::get('/{category_slug}/services',ServicesByCategoryComponent::class)->name('home.services_by_category');
+
 // Route::middleware([
 //     'auth:sanctum',
 //     config('jetstream.auth_session'),

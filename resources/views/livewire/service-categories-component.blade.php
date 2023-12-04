@@ -31,10 +31,10 @@
                             <li>
                                 <div class="item-service-line">
                                     <i class="fa">
-                                        <a href="{{route('home.services_categories',['category_slug'=>$scategory->slug])}}">
+                                        <a href="{{route('home.services_by_category',['category_slug'=>$scategory->slug])}}">
                                         <img class="icon-img" src="{{asset('images/categories')}}/{{$scategory->image}}" alt="{{$scategory->name}}">
                                         </a></i>
-                                    <h5>AC</h5>
+                                    <h5>{{$scategory->name}}</h5>
                                 </div>
                             </li>
                             @endforeach
