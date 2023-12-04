@@ -15,6 +15,7 @@ class AdminAddServiceCategoryComponent extends Component
     public $image;
 
     use WithFileUploads;
+    
     public function generateSlug(){
         $this->slug=Str::slug($this->name,'-');
     }

@@ -16,6 +16,22 @@ class AdminServicesByCategroyComponent extends Component
     {
         $this->category_slug=$category_slug;
     }
+
+     public function deleteService($service_id)
+    {
+        $service=Service::find($service_id);
+         if($service->thumnail)
+        {
+            unlink('images/services/thubnails'. '/' . $service->thumbnail);
+        }
+        if($service->image)
+        {
+            unlink('images/services'. '/' . $service->image);
+        }
+        $service->delete();
+        session()->flash('message','Service has been deleted successfully!');
+    }
+    
     public function render()
     {
         $category=ServiceCategory::where('slug',$this->category_slug)->first();
