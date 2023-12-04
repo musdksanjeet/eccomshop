@@ -14,6 +14,8 @@ use App\Http\Livewire\Admin\AdminServicesComponent;
 use App\Http\Livewire\Admin\AdminServicesByCategroyComponent;
 use App\Http\Livewire\Admin\AdminAddServiceComponent;
 use App\Http\Livewire\Admin\AdminEditServiceComponent;
+use App\Http\Livewire\ServiceDetailsComponent;
+
 /*
 
 |--------------------------------------------------------------------------
@@ -33,6 +35,7 @@ use App\Http\Livewire\Admin\AdminEditServiceComponent;
 Route::get('/',HomeComponent::class)->name('home');
 Route::get('/service-categories',ServiceCategoriesComponent::class)->name('home.services_categories');
 Route::get('/{category_slug}/services',ServicesByCategoryComponent::class)->name('home.services_by_category');
+Route::get('service/{service_slug}',ServiceDetailsComponent::class)->name('home.service_details');
 
 // Route::middleware([
 //     'auth:sanctum',

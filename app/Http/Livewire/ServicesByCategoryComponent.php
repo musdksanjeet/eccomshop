@@ -4,7 +4,6 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\ServiceCategory;
-use App\Models\Service;
 
 class ServicesByCategoryComponent extends Component
 {
@@ -18,6 +17,7 @@ class ServicesByCategoryComponent extends Component
     public function render()
     {
         $scategory=ServiceCategory::where('slug',$this->category_slug)->first();
+        
         return view('livewire.services-by-category-component',['scategory'=>$scategory])->layout('layouts.base');
     }
 }
