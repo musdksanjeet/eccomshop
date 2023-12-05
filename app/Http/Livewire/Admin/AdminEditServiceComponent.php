@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
 
 class AdminEditServiceComponent extends Component
 {
-     use WithFileUploads;
+    use WithFileUploads;
     public $name;
     public $slug;
     public $tagline;
