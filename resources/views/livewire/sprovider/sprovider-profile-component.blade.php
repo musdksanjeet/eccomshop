@@ -9,6 +9,7 @@
                         <li><a href="/">Home</a></li>
                         <li>/</li>
                         <li>Profile</li>
+
                     </ul>
                 </div>
             </div>
@@ -27,7 +28,7 @@
                                             Profile
                                         </div>
                                         <div class="col-md-6">
-                                            
+                                            <a href="{{route('sprovider.edit_profile')}}" class="btn btn-info pull-right">Edit Profile</a>
                                         </div>
                                     </div>
                                 </div>
