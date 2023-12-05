@@ -12,19 +12,20 @@
                 </ul>
                 <div class="tp-bannertimer"></div>
             </div>
-            <div class="filter-title">
-                <div class="title-header">
-                    <h2 style="color:#fff;">BOOK A SERVICE</h2>
-                    <p class="lead">Book a service at very affordable price, </p>
-                </div>
-                <div class="filter-header">
-                    <form id="sform" action="searchservices" method="post">                        
-                        <input type="text" id="q" name="q" required="required" placeholder="What Services do you want?"
-                            class="input-large typeahead" autocomplete="off">
-                        <input type="submit" name="submit" value="Search">
-                    </form>
-                </div>
+             <div class="filter-title">
+            <div class="title-header">
+                <h2 style="color:#fff;">BOOK A SERVICE</h2>
+                <p class="lead">Book a service at very affordable price, </p>
             </div>
+            <div class="filter-header">
+                <form id="sform" action="{{route('searchService')}}">     
+                    @csrf                   
+                    <input type="text" id="q" name="q" required="required" placeholder="What Services do you want?"
+                        class="input-large typeahead" autocomplete="off">
+                    <input type="submit" name="submit" value="Search">
+                </form>
+            </div>            
+        </div>
         </section>
         <section class="content-central">
             <div class="content_info content_resalt">
@@ -150,3 +151,15 @@
                 </div>
             </div>
         </section>
+@push('scripts')
+    <script type="text/javascript">
+        var path = "{{route('autocomplete')}}";
+        $('input.typeahead').typeahead({
+            source: function(query,process){
+                return $.get(path,{query:query},function(data){
+                    return process(data);
+                });
+            }
+        });    
+    </script>
+@endpush
