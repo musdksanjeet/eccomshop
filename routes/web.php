@@ -21,7 +21,7 @@ use App\Http\Livewire\Admin\AdminAddSlideComponent;
 use App\Http\Livewire\Admin\AdminEditSlideComponent;
 use App\Http\Controllers\SearchController;
 use App\Http\Livewire\ChangeLocationComponent;
-
+use App\Http\Livewire\Sprovider\SproviderProfileComponent;
 
 
 /*
@@ -80,6 +80,7 @@ Route::get('/admin/slide/edit/{slide_id}',AdminEditSlideComponent::class)->name(
 // for Sprovider
 Route::middleware(['auth:sanctum', 'verified','authsprovider'])->group(function(){
     Route::get('/sprovider/dashboard',SproviderDashboardComponent::class)->name('sprovider.dashboard');
+    Route::get('/sprovider/profile',SproviderProfileComponent::class)->name('sprovider.profile');
 });
 
 
