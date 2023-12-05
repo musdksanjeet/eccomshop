@@ -20,6 +20,7 @@ use App\Http\Livewire\Admin\AdminSliderComponent;
 use App\Http\Livewire\Admin\AdminAddSlideComponent;
 use App\Http\Livewire\Admin\AdminEditSlideComponent;
 use App\Http\Controllers\SearchController;
+use App\Http\Livewire\ChangeLocationComponent;
 
 
 
@@ -45,6 +46,7 @@ Route::get('/{category_slug}/services',ServicesByCategoryComponent::class)->name
 Route::get('service/{service_slug}',ServiceDetailsComponent::class)->name('home.service_details');
 Route::get('/autocomplete',[SearchController::class,'autocomplete'])->name('autocomplete');
 Route::get('/search',[SearchController::class,'searchService'])->name('searchService');
+Route::get('/change-location',ChangeLocationComponent::class)->name('home.change_location');
 
 // Route::middleware([
 //     'auth:sanctum',
