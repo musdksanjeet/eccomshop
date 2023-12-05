@@ -49,9 +49,10 @@ class AdminEditServiceComponent extends Component
 
     }
 
+    
     public function generateSlug()
     {
-        $this->slug=Str::slug($this->slug,'-');
+        $this->slug=Str::slug($this->name,'-');
     }
 
     public function updated($fields)

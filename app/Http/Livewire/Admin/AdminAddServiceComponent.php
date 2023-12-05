@@ -26,7 +26,7 @@ class AdminAddServiceComponent extends Component
     public $exclusion;
 
     public function generateSlug(){
-        $this->slug=Str::slug($this->slug.'-');
+        $this->slug=Str::slug($this->name,'-');
     }
 
     public function updated($fields){
@@ -44,8 +44,9 @@ class AdminAddServiceComponent extends Component
         ]);
     }
 
-    public function createService(){
-        $this->validate([
+    public function createService()
+{
+    $this->validate([
           'name'=> 'required',
           'slug'=> 'required',
           'tagline'=> 'required',
@@ -57,29 +58,31 @@ class AdminAddServiceComponent extends Component
           'inclusion'=> 'required',
           'exclusion'=> 'required'  
         ]);
-    $services=new Service();
+
+
+    $service = new Service();
     $service->name = $this->name;
     $service->slug = $this->slug;
     $service->tagline = $this->tagline;
     $service->service_category_id = $this->service_category_id;
     $service->price = $this->price;
     $service->discount = $this->discount;
-    $service->discount_type = $this->discount_type;       
+    $service->discount_type = $this->discount_type;
     $service->description = $this->description;
     $service->inclusion = str_replace(' ', '|', trim($this->inclusion));
     $service->exclusion = str_replace(' ', '|', trim($this->exclusion));
 
-    $imageName=Carbon::now()->timestamp.".".$this->image->extension();
-    $this->image=storeAs('services',$imageName);
-    $service->image=$imageName;
+    $imageName = Carbon::now()->timestamp . "." . $this->image->extension();
+    $this->image->storeAs('services', $imageName);
+    $service->image = $imageName;
 
-    $imageName2=Carbon::now()->timestamp.'.'.$this->timestamp->extension();
-    $this->image=storeAs('services/thumbnails',$imageName2);
-    $service->thumbnail=$imageName2;
+    $imageName2 = Carbon::now()->timestamp . '.' . $this->thumbnail->extension();
+    $this->thumbnail->storeAs('services/thumbnails', $imageName2);
+    $service->thumbnail = $imageName2;
 
-     $service->save();
-     session()->flash('message','Service has been created successfully!');
-    }
+    $service->save();
+    session()->flash('message', 'Service has been created successfully!');
+}
 
     public function render()
     {
@@ -87,3 +90,7 @@ class AdminAddServiceComponent extends Component
         return view('livewire.admin.admin-add-service-component',['scategories'=>$scategories])->layout('layouts.base');
     }
 }
+
+
+
+
