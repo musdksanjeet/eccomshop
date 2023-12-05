@@ -26,6 +26,8 @@ use App\Http\Livewire\Sprovider\EditSproviderProfileComponent;
 
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\Admin\AdminContactComponent;
+
+use App\Http\Livewire\Admin\AdminServiceProvidersComponent;
 /*
 
 |--------------------------------------------------------------------------
@@ -78,6 +80,7 @@ Route::get('/admin/slider',AdminSliderComponent::class)->name('admin.slider');
 Route::get('/admin/slide/add',AdminAddSlideComponent::class)->name('admin.add_slide');
 Route::get('/admin/slide/edit/{slide_id}',AdminEditSlideComponent::class)->name('admin.edit_slide');
 Route::get('/admin/contact',AdminContactComponent::class)->name('admin.contacts');
+Route::get('admin/service-providers',AdminServiceProvidersComponent::class)->name('admin.service_providers');
 
 
 });
