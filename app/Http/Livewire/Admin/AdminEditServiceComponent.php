@@ -63,8 +63,8 @@ class AdminEditServiceComponent extends Component
           'tagline'=> 'required',
           'service_category_id'=> 'required',
           'price'=> 'required',                    
-          'image'=> 'required|mimes:jpeg,png',
-          'thumbnail'=> 'required|mimes:jpeg,png',
+          //'image'=> 'required|mimes:jpeg,png',
+          //'thumbnail'=> 'required|mimes:jpeg,png',
           'description'=> 'required',
           'inclusion'=> 'required',
           'exclusion'=> 'required'  
@@ -86,16 +86,18 @@ class AdminEditServiceComponent extends Component
 
     }
 
+
     public function updateService()
     {
+
         $this->validate([
           'name'=> 'required',
           'slug'=> 'required',
           'tagline'=> 'required',
           'service_category_id'=> 'required',
           'price'=> 'required',                    
-          'image'=> 'required|mimes:jpeg,png',
-          'thumbnail'=> 'required|mimes:jpeg,png',
+          // 'image'=> 'required|mimes:jpeg,png',
+          // 'thumbnail'=> 'required|mimes:jpeg,png',
           'description'=> 'required',
           'inclusion'=> 'required',
           'exclusion'=> 'required'  
@@ -115,7 +117,10 @@ class AdminEditServiceComponent extends Component
             ]);
         }
 
+        //die;
+        
         $service=Service::find($this->service_id);
+       
         $service->name = $this->name;
         $service->slug = $this->slug;
         $service->tagline = $this->tagline;
@@ -123,13 +128,13 @@ class AdminEditServiceComponent extends Component
         $service->price = $this->price;
         $service->discount = $this->discount;
         $service->discount_type = $this->discount_type;       
-        $service->description = $this->description;
-        $service->featured = $this->featured;      
+        $service->description = $this->description;            
         $service->inclusion = str_replace(' ', '|', trim($this->inclusion));
         $service->exclusion = str_replace(' ', '|', trim($this->exclusion));
 
          if($this->newthumbnail)
         {
+
             unlink('images/services/thumbnails'.'/'.$service->thumbnail);
             $imageName = Carbon::now()->timestamp . '.' . $this->newthumbnail->extension();
             $this->newthumbnail->storeAs('services/thumbnails',$imageName);
@@ -144,7 +149,7 @@ class AdminEditServiceComponent extends Component
             $this->newimage->storeAs('services',$imageName2);
             $service->image = $imageName2;
         } 
-
+        $service->featured = $this->featured;  
         $service->save();
         session()->flash('message','Service has been updated successfully!');
     }
