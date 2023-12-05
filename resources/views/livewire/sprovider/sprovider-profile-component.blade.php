@@ -37,7 +37,7 @@
                                            @if($sprovider->image)
                                                 <img src="{{asset('images/sproviders')}}/{{$sprovider->image}}" width="100%" />
                                             @else
-                                                <img src="{{asset('images/sproviders/default.jpg')}}" width="100%" />
+                                                <img src="{{asset('images/sproviders/profile.png')}}" width="100%" />
                                             @endif
                                        </div>
                                        <div class="col-md-8">
