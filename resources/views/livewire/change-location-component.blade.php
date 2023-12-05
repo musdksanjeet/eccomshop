@@ -22,7 +22,9 @@
                     <div class="container">
                         <div class="row">
                             @if(Session::has('message'))
-                             <div class="alert alert-success" role="alert">{{Session::get('message')}}</div>
+                             <div class="alert alert-success" role="alert">
+                                {{Session::get('message')}}
+                            </div>
                             @endif
                             <form wire:submit.prevent="changeLocation">
                                 
@@ -30,14 +32,12 @@
                                     <h3>Search Your Location</h3>
                                     <p class="lead">
                                     </p>
-                                    <input type="text" class="form-control" id="autocomplete" name="location"
-                                        placeholder="Search Location....">
+                                    <input type="text" class="form-control" id="autocomplete" name="location" placeholder="Search Location....">
                                     <div id="map" style="height: 400px;"></div>
                                 </div>
                                 <div class="col-md-4">
                                     <aside class="addlocation">
-                                        <h4>Your Location<input type="submit" class="btn btn-primary pull-right"
-                                                name="submit" value="Add Location"></h4>
+                                        <h4>Your Location<input type="submit" class="btn btn-primary pull-right" name="submit" value="Add Location"></h4>
                                         <address>
                                             <div class="form-group">
                                                 <label for="streetnumber" class="col-form-label">Street Number:</label>

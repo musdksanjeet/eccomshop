@@ -21,8 +21,9 @@ class ChangeLocationComponent extends Component
         session()->put('state',$this->state);
         session()->put('country',$this->country);
         session()->put('zipcode',$this->zipcode);
+        
         session()->flash('message','Location has been changed');
-        $this->emitTo('location-component','refreshComponent');//Livewire method
+        $this->emitTo('location-component','refreshComponent');//Livewire method "emitTo"
     }
     public function render()
     {
