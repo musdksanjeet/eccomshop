@@ -123,7 +123,8 @@
                                         <li><a href="{{route('admin.dashboard')}}">Dasboard</a></li>
                                         <li><a href="{{route('admin.service_categories')}}">Service Categories</a></li>
                                         <li><a href="{{route('admin.all_services')}}">All Services</a></li>
-                                        <li><a href="{{route('admin.slider')}}">Manage Slider</a></li>                                                       
+                                        <li><a href="{{route('admin.slider')}}">Manage Slider</a></li>
+                                       <li><a href="{{route('admin.contacts')}}">All Contacts</a></li>
                                         <li><a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a></li>
                                     </ul>
                                 </li>
@@ -202,7 +203,7 @@
                     <div class="col-md-3 col-xs-6 col-sm-6">
                         <h3>CONTACT US</h3>
                         <ul class="contact_footer">
-                            <li class="location">
+                            <!-- <li class="location">
                                 <i class="fa fa-map-marker"></i> <a href="#"> Faridabad, Haryana, India</a>
                             </li>
                             <li>
@@ -211,7 +212,8 @@
                             </li>
                             <li>
                                 <i class="fa fa-headphones"></i> <a href="tel:+911234567890">+91-1234567890</a>
-                            </li>
+                            </li> -->
+                            <li><a href="{{route('home.contact')}}">Contact Us</a></li>
                         </ul>
                         <h3 style="margin-top: 10px">FOLLOW US</h3>
                         <ul class="social">

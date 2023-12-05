@@ -24,6 +24,8 @@ use App\Http\Livewire\ChangeLocationComponent;
 use App\Http\Livewire\Sprovider\SproviderProfileComponent;
 use App\Http\Livewire\Sprovider\EditSproviderProfileComponent;
 
+use App\Http\Livewire\ContactComponent;
+use App\Http\Livewire\Admin\AdminContactComponent;
 /*
 
 |--------------------------------------------------------------------------
@@ -47,6 +49,7 @@ Route::get('service/{service_slug}',ServiceDetailsComponent::class)->name('home.
 Route::get('/autocomplete',[SearchController::class,'autocomplete'])->name('autocomplete');
 Route::get('/search',[SearchController::class,'searchService'])->name('searchService');
 Route::get('/change-location',ChangeLocationComponent::class)->name('home.change_location');
+Route::get('/contact',ContactComponent::class)->name('home.contact');
 
 // Route::middleware([
 //     'auth:sanctum',
@@ -74,6 +77,8 @@ Route::get('/admin/service/edit/{service_slug}',AdminEditServiceComponent::class
 Route::get('/admin/slider',AdminSliderComponent::class)->name('admin.slider');
 Route::get('/admin/slide/add',AdminAddSlideComponent::class)->name('admin.add_slide');
 Route::get('/admin/slide/edit/{slide_id}',AdminEditSlideComponent::class)->name('admin.edit_slide');
+Route::get('/admin/contact',AdminContactComponent::class)->name('admin.contacts');
+
 
 });
 
